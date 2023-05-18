@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../styles/colors_app.dart';
 import '../styles/styles_app.dart';
+import '../styles/text_styles.dart';
 
 class ThemeConfig {
   //Para evitar que seja instanciada
@@ -21,7 +22,25 @@ class ThemeConfig {
       primary: ColorsApp.instance.primary,
       secondary: ColorsApp.instance.secondary,
     ),
-    elevatedButtonTheme:
-        ElevatedButtonThemeData(style: StylesApp.instance.primaryButton),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: StylesApp.instance.primaryButton,
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      fillColor: Colors.white,
+      filled: true,
+      isDense: true,
+      contentPadding: const EdgeInsets.all(20),
+      border: _defaultInputBorder,
+      enabledBorder: _defaultInputBorder,
+      focusedBorder: _defaultInputBorder,
+      labelStyle: TextStyles.instance.textRegular.copyWith(color: Colors.black),
+      errorStyle:
+          TextStyles.instance.textRegular.copyWith(color: Colors.redAccent),
+    ),
+  );
+
+  static final _defaultInputBorder = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(7),
+    borderSide: BorderSide(color: Colors.grey[400]!),
   );
 }

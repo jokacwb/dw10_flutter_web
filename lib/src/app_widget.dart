@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import 'core/constants.dart';
 import 'core/ui/theme/theme_config.dart';
 
 class AppWidget extends StatelessWidget {
@@ -8,6 +9,8 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Modular.setInitialRoute(Constants.instance.ROUTE_LOGIN);
+
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       title: 'Application Name',
